@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
     {
         User::create([
             'name' => 'Giovane Oliveira',
-            'email' => 'giovane.oliveira@funcionalconsultoria.com.be',
+            'email' => 'giovane.oliveira@funcionalconsultoria.com.br',
             'password' => bcrypt('240380'),
         ]);
     }
