@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Sistema de Saldo',
+    'title' => 'Points',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Sistema</b>Saldo',
+    'logo' => '<b>Prize</b>Points',
 
-    'logo_mini' => '<b>Sistema</b>L5',
+    'logo_mini' => '<b>P</b>',
 
     /*
     |--------------------------------------------------------------------------

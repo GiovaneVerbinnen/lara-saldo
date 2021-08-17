@@ -16,7 +16,7 @@
         <a href="{{ route('balance.deposit') }}" class="btn btn-primary"><i class="fa fa-arrow-circle-up"></i>
             Recarregar</a>
         @if ($amount > 0)
-        <a href=" {{ route('balance.withdrawn') }} " class="btn btn-warning"><i class="fa fa-arrow-circle-down"></i>
+        <a href=" {{ route('balance.withdraw') }} " class="btn btn-warning"><i class="fa fa-arrow-circle-down"></i>
             Sacar</a>
         @endif
 
