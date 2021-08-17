@@ -13,8 +13,11 @@
 @section('content')
 <div class="box">
     <div class="box-header">
-        <a class="btn btn-primary"><i class="fa fa-arrow-circle-up"></i> Recarregar</a>
-        <a class="btn btn-warning"><i class="fa fa-arrow-circle-down"></i> Sacar</a>
+        <a href="{{ route('balance.deposit') }}" class="btn btn-primary"><i class="fa fa-arrow-circle-up"></i>
+            Recarregar</a>
+        {{-- <a href=" {{ route('balance.to_withdraw') }} " class="btn btn-warning"><i
+            class="fa fa-arrow-circle-down"></i>
+        Sacar</a> --}}
     </div>
     <div class="box-body">
         <div class="small-box bg-green">
