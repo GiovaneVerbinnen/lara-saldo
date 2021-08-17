@@ -19,6 +19,8 @@
             class="fa fa-arrow-circle-down"></i>
         Sacar</a> --}}
     </div>
+    @include('admin.includes.alerts')
+
     <div class="box-body">
         <div class="small-box bg-green">
             <div class="inner">

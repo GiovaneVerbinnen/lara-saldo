@@ -31,13 +31,13 @@ class Balance extends Model
             DB::commit();
 
             return [
-                'sucess' => true,
+                'success' => true,
                 'message' => 'Sucesso ao recarregar'
             ];
         } else {
             DB::rollback();
             return [
-                'sucess' => false,
+                'success' => false,
                 'message' => 'Falha ao recarregar'
             ];
         }
