@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::post('withdrawn', 'BalanceController@withdrawnStore')->name('withdrawn.store');
+    Route::get('withdrawn', 'BalanceController@withdrawn')->name('balance.withdrawn');
+
     Route::post('deposit', 'BalanceController@depositStore')->name('deposit.store');
     Route::get('deposit', 'BalanceController@deposit')->name('balance.deposit');
+
     Route::get('balance', 'BalanceController@index')->name('admin.balance');
     //Route::get('historic', 'BalanceController@index')->name('admin.balance');
     Route::get('/', 'AdminController@index')->name('admin.home');
