@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MoneyValidationFormRequest;
 use App\Models\Balance;
 
 class BalanceController extends Controller
@@ -20,7 +21,7 @@ class BalanceController extends Controller
         return view('admin.balance.deposit');
     }
 
-    public function depositStore(Request $request)
+    public function depositStore(MoneyValidationFormRequest $request)
     {
         $balance = auth()->user()->balance()->firstOrCreate([]);
         $balance->deposit($request->value);
