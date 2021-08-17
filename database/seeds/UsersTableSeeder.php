@@ -17,5 +17,11 @@ class UsersTableSeeder extends Seeder
             'email' => 'giovane.oliveira@funcionalconsultoria.com.br',
             'password' => bcrypt('240380'),
         ]);
+
+        User::create([
+            'name' => 'Teste',
+            'email' => 'teste@funcionalconsultoria.com.br',
+            'password' => bcrypt('123456'),
+        ]);
     }
 }
