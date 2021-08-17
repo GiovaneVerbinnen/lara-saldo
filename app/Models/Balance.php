@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class Balance extends Model
 {
@@ -11,6 +12,8 @@ class Balance extends Model
 
     public function deposit(float $value): array
     {
+        DB::beginTransaction();
+
         $totalBefore = $this->amount ? $this->amount : 0;
         $this->amount += number_format($value, 2, '.', '');
         $deposit = $this->save();
@@ -23,15 +26,20 @@ class Balance extends Model
             'date'                  => 'Ymd',
         ]);
 
-        if ($deposit && $historic)
+        if ($deposit && $historic) {
+
+            DB::commit();
+
             return [
                 'sucess' => true,
                 'message' => 'Sucesso ao recarregar'
             ];
-
-        return [
-            'sucess' => false,
-            'message' => 'Falha ao recarregar'
-        ];
+        } else {
+            DB::rollback();
+            return [
+                'sucess' => false,
+                'message' => 'Falha ao recarregar'
+            ];
+        }
     }
 }
