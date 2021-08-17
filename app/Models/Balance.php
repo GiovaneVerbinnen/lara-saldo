@@ -8,8 +8,20 @@ class Balance extends Model
 {
     public $timestamps = false;
 
-    public function deposit($value)
+    public function deposit(float $value): array
     {
-        dd($value);
+        $this->amount += number_format($value, 2, '.', '');
+        $deposit = $this->save();
+
+        if ($deposit)
+            return [
+                'sucess' => true,
+                'message' => 'Sucesso ao recarregar'
+            ];
+
+        return [
+            'sucess' => false,
+            'message' => 'Falha ao recarregar'
+        ];
     }
 }
