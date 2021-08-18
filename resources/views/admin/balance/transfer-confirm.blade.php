@@ -16,6 +16,8 @@
 <div class="box">
     <div class="box-header">
         <h3>Confirmar Tranferência</h3>
+        <p class="text-success lead">Seu saldo é: <span
+                style="font-weight:bold;">R${{ number_format($balance->amount, 2, ',', '.') }}</span></p>
         <p>Você está transferindo para: {{ $sender->name }}</p>
     </div>
     <div class="box-body">
@@ -26,7 +28,7 @@
             <input type="hidden" name="sender_id" value="{{ $sender->id }}" />
 
             <div class="form-group">
-                <input type="text" name="balance" placeholder="Valor:" class="form-control" />
+                <input type="text" name="value" placeholder="Valor:" class="form-control" />
             </div>
 
             <div class="form-group">
