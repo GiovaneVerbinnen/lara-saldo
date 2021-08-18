@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 });
 
 
+Route::post('profile-update', 'Admin\UserController@profileUpdate')->name('profile-update')->middleware('auth');
 Route::get('my-profile', 'Admin\UserController@profile')->name('profile')->middleware('auth');
 
 Route::get('/', 'SiteController@index')->name('home');
