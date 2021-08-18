@@ -11,7 +11,12 @@
 @endsection
 
 @section('content')
-<h1 class="lead">Minha Conta</h1>
+<h1 class="h1">Minha Conta</h1>
+<div>
+    @if (auth()->user()->image != null)
+    <img src="{{url('storage/users/'.auth()->user()->image)}}" style="max-width:150px; height:auto; ">
+    @endif
+</div>
 @if (session('success'))
 <div class="alert alert-success"> {{session('success')}}</div>
 @endif
@@ -37,6 +42,7 @@
         <div class="form-group">
             <label for="image">Imagem</label>
             <input type="file" name="image" class="form-control">
+
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Atualizar Perfil</button>
