@@ -1,40 +1,35 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
+@extends('adminlte::page')
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('title', 'Home')
+@section('content_header')
+<h1>Index</h1>
+@stop
 
-    <title>Laravel</title>
 
-    <!-- Fonts -->
 
-    <!-- Styles -->
 
-</head>
 
-<body>
-    <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-            <a href="{{  route('admin.home')  }}">Painel Admin</a>
-            <a href="{{  route('profile')  }}">Meu Perfil</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('register') }}">Register</a>
-            @endauth
-        </div>
-        @endif
 
-        <div class="content">
-            <div class="title m-b-md">
-                Welcome
-            </div>
 
-        </div>
+
+@section('content')
+
+<div class="content">
+    <div class="alert alert-secondary" role="alert">
+        This is a secondary alert—check it out!
     </div>
-</body>
+    @if (Route::has('login'))
+    <div class="top-right links">
+        @auth
+        <a class="btn btn-success" href="{{  route('admin.home')  }}">Painel Admin</a>
+        <a class="btn btn-info" href="{{  route('profile')  }}">Meu Perfil</a>
+        @else
+        <a class="btn btn-success" href="{{ route('login') }}">Login</a>
+        <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
+        @endauth
+    </div>
+    @endif
+</div>
 
-</html>
+
+@stop
