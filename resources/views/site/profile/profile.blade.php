@@ -2,7 +2,7 @@
 
 @section('title', 'Minha Conta')
 @section('content_header')
-<h1 class="lead">Minha Conta</h1>
+
 <ol class="breadcrumb">
     <li><a href="">Home</a></li>
     <li><a href="">Minha Conta</a></li>
@@ -11,6 +11,13 @@
 @endsection
 
 @section('content')
+<h1 class="lead">Minha Conta</h1>
+@if (session('success'))
+<div class="alert alert-success"> {{session('success')}}</div>
+@endif
+@if(session('error'))
+<div class="alert alert-danger"> {{session('error')}}</div>
+@endif
 <div class="content">
     <form action="{{ route('profile-update') }}" method="POST">
         {!! csrf_field() !!}
