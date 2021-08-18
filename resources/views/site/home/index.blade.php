@@ -19,7 +19,8 @@
         @if (Route::has('login'))
         <div class="top-right links">
             @auth
-            <a href="{{ url('/admin') }}">Admin</a>
+            <a href="{{  route('admin.home')  }}">Painel Admin</a>
+            <a href="{{  route('profile')  }}">Meu Perfil</a>
             @else
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('register') }}">Register</a>
