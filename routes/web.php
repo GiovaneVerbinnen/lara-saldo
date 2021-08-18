@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 
     Route::get('balance', 'BalanceController@index')->name('admin.balance');
 
+    Route::post('historic', 'BalanceController@searchHistoric')->name('historic.search');
     Route::get('historic', 'BalanceController@historic')->name('admin.historic');
 
     Route::get('/', 'AdminController@index')->name('admin.home');
