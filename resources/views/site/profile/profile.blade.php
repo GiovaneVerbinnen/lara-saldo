@@ -12,17 +12,8 @@
 
 @section('content')
 <h1 class="h1">Minha Conta</h1>
-<div>
-    @if (auth()->user()->image != null)
-    <img src="{{url('storage/users/'.auth()->user()->image)}}" style="max-width:150px; height:auto; ">
-    @endif
-</div>
-@if (session('success'))
-<div class="alert alert-success"> {{session('success')}}</div>
-@endif
-@if(session('error'))
-<div class="alert alert-danger"> {{session('error')}}</div>
-@endif
+@include('admin.includes.alerts')
+
 <div class="content">
     <form action="{{ route('profile-update') }}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
@@ -32,7 +23,7 @@
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" value="{{ auth()->user()->email }}" placeholder="Nome" disabled
+            <input type="email" name="email" value="{{ auth()->user()->email }}" placeholder="Nome"
                 class="form-control">
         </div>
         <div class="form-group">
@@ -42,10 +33,15 @@
         <div class="form-group">
             <label for="image">Imagem</label>
             <input type="file" name="image" class="form-control">
-
+            @if (auth()->user()->image != null)
+            <img src="{{url('storage/users/'.auth()->user()->image)}}" style="max-width:150px; height:auto; ">
+            @endif
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Atualizar Perfil</button>
+
+
+
         </div>
 
     </form>
