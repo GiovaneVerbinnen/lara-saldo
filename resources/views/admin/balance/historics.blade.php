@@ -62,7 +62,15 @@
 
             </tbody>
         </table>
+
+        @if (isset($dataForm))
+        'tem'
+        {!! $historics->appends($dataForm)->links() !!}
+        @else
+        'não tem'
         {!! $historics->links() !!}
+        @endif
+
     </div>
 </div>
 

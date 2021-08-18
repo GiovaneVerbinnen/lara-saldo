@@ -51,6 +51,7 @@ class Historic extends Model
             if (isset($data['type']))
                 $query->where('type', $data['type']);
         })->paginate($totalPage);
+
         return $historics;
     }
 }
