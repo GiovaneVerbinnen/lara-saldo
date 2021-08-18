@@ -22,9 +22,10 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Data</th>
                     <th>Valor</th>
                     <th>Tipo</th>
-                    <th>?Sender?</th>
+                    <th>Sender</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,9 +33,15 @@
                 <tr>
                     <td>{{ $historic->id }}</td>
                     <td>{{ $historic->date }}</td>
-                    <td>{{ number_format($historic->amount, 2, ',', '.') }}</td>
-                    <td>{{ $historic->type}}</td>
-                    <td>{{ $historic->user_id_transaction }}</td>
+                    <td>R$ {{ number_format($historic->amount, 2, ',', '.') }}</td>
+                    <td>{{ $historic->type($historic->type) }}</td>
+                    <td>
+                        @if ($historic->user_id_transaction)
+                        {{$historic->userSender->name}}
+                        @else
+                        -
+                        @endif
+                    </td>
                 </tr>
                 @empty
                 <p>'empty'</p>
