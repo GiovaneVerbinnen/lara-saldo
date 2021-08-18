@@ -13,7 +13,7 @@
 @section('content')
 <div class="box">
     <div class="box-header">
-        <form action="{{ route('historic.search') }}" method="POST" class="form form-inline">
+        <form action="{{ route('historic.search') }}" method="POST" class="form form-inline ">
             {!! csrf_field() !!}
             <input type="text" name="id" class="form-control" placeholder="ID">
             <input type="date" name="date" class="form-control">
@@ -23,9 +23,11 @@
                 <option value="{{$key}}">{{ $type }}</option>
                 @endforeach
             </select>
-            <button type="submit" class="btn btn-primary">Pesquisar</button>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-filter fa-xs text-white"></i>
+                Pesquisar</button>
         </form>
     </div>
+
     @include('admin.includes.alerts')
 
     <div class="box-body">
